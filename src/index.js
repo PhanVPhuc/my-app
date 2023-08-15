@@ -1,13 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import Phuc from "./Phuc";
+import Nhu from "./Nhu";
+import Content from "./Content";
+import Header from "./Header";
+import Footer from "./Footer";
+// import "./index.html";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// function Welcome(props) {
+//   return <h1>Hello : {props.name}</h1>;
+// }
+function PhucHeo(data) {
+  console.log(data);
+  return data; // return đa ta để khi xuất hàm p ở dưới sẽ cho lại data trên
+}
+// let html = <Welcome name=" Phuc Phan" />;
+let x = 123;
+// let obj = {
+//   name: "Phuc Phan",
+//   age: 20,
+//   123: " Text ? ",
+// };
+// let y = "Toi la Phuc";
+let ham = <p> day la the p {PhucHeo(x)} </p>;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Content />
+    <Footer />
   </React.StrictMode>
 );
 
