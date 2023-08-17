@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <div>
@@ -111,9 +113,9 @@ function Header() {
               <div className="shop-menu clearfix pull-right">
                 <ul className="nav navbar-nav">
                   <li>
-                    <a href>
+                    <Link to="/account">
                       <i className="fa fa-user" /> Account
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href>
@@ -131,9 +133,9 @@ function Header() {
                     </a>
                   </li>
                   <li>
-                    <a href="login.html">
+                    <Link to="/login">
                       <i className="fa fa-lock" /> Login
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -163,9 +165,9 @@ function Header() {
               <div className="mainmenu pull-left">
                 <ul className="nav navbar-nav collapse navbar-collapse">
                   <li>
-                    <a href="index.html" className="active">
+                    <Link to="/" className="active">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="dropdown">
                     <a href="#">

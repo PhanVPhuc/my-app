@@ -39,8 +39,8 @@ root.render(
       <App>
         <Routes>
           <Route index path="/" element={<Home />} />
-          <Route path="/Account" element={<Account />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </App>
     </Router>
