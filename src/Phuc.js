@@ -1,4 +1,5 @@
 import Nhu from "./Nhu";
+import React from "react";
 
 function Phuc(props) {
   console.log(props);

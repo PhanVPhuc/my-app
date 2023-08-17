@@ -1,6 +1,7 @@
+import React from "react";
 function Footer() {
   return (
-    <footer id="footer">
+    <div>
       {/*Footer*/}
       <div className="footer-top">
         <div className="container">
@@ -209,7 +210,7 @@ function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
+import React from "react";
 function Header() {
   return (
-    <header id="header">
+    <div>
       {/*header*/}
       <div className="header_top">
         {/*header_top*/}
@@ -221,7 +222,7 @@ function Header() {
         </div>
       </div>
       {/*/header-bottom*/}
-    </header>
+    </div>
   );
 }
 

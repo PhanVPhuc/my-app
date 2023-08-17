@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Phuc from "./Phuc";
@@ -8,6 +9,10 @@ import Nhu from "./Nhu";
 import Content from "./Content";
 import Header from "./Header";
 import Footer from "./Footer";
+import Home from "./Home";
+import Login from "./component/Login";
+import Account from "./component/Account";
+
 // import "./index.html";
 
 // function Welcome(props) {
@@ -30,9 +35,15 @@ let ham = <p> day la the p {PhucHeo(x)} </p>;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
-    <Content />
-    <Footer />
+    <Router>
+      <App>
+        <Routes>
+          <Route index path="/" element={<Home />} />
+          <Route path="/Account" element={<Account />} />
+          <Route path="/Login" element={<Login />} />
+        </Routes>
+      </App>
+    </Router>
   </React.StrictMode>
 );
 

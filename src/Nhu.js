@@ -1,3 +1,4 @@
+import React from "react";
 function Nhu(props) {
   console.log(props);
   return (
