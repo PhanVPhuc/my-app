@@ -46,7 +46,7 @@ root.render(
           <Route path="/account" element={<Account />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/check-out" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<Product />} />
         </Routes>

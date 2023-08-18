@@ -123,14 +123,14 @@ function Header() {
                     </a>
                   </li>
                   <li>
-                    <a href="checkout.html">
+                    <Link to="/checkout">
                       <i className="fa fa-crosshairs" /> Checkout
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="cart.html">
+                    <Link to="/cart">
                       <i className="fa fa-shopping-cart" /> Cart
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link to="/login">
@@ -176,19 +176,29 @@ function Header() {
                     </a>
                     <ul role="menu" className="sub-menu">
                       <li>
-                        <a href="shop.html">Products</a>
+                        <Link to="/account">
+                          <i className="fa fa-user" /> Account
+                        </Link>
                       </li>
                       <li>
-                        <a href="product-details.html">Product Details</a>
+                        <a href>
+                          <i className="fa fa-star" /> Wishlist
+                        </a>
                       </li>
                       <li>
-                        <a href="checkout.html">Checkout</a>
+                        <Link to="/checkout">
+                          <i className="fa fa-crosshairs" /> Checkout
+                        </Link>
                       </li>
                       <li>
-                        <a href="cart.html">Cart</a>
+                        <Link to="/cart">
+                          <i className="fa fa-shopping-cart" /> Cart
+                        </Link>
                       </li>
                       <li>
-                        <a href="login.html">Login</a>
+                        <Link to="/login">
+                          <i className="fa fa-lock" /> Login
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -210,7 +220,7 @@ function Header() {
                     <a href="404.html">404</a>
                   </li>
                   <li>
-                    <a href="contact-us.html">Contact</a>
+                    <Link to="/contact">Contact</Link>
                   </li>
                 </ul>
               </div>
