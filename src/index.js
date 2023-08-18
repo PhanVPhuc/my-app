@@ -12,6 +12,10 @@ import Footer from "./Footer";
 import Home from "./Home";
 import Login from "./component/Login";
 import Account from "./component/Account";
+import Cart from "./component/Cart";
+import Checkout from "./component/Checkout";
+import Contact from "./component/Contact";
+import Product from "./component/Product";
 
 // import "./index.html";
 
@@ -41,6 +45,10 @@ root.render(
           <Route index path="/" element={<Home />} />
           <Route path="/account" element={<Account />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/check-out" element={<Checkout />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
       </App>
     </Router>
