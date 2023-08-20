@@ -16,6 +16,9 @@ import Cart from "./component/Cart";
 import Checkout from "./component/Checkout";
 import Contact from "./component/Contact";
 import Product from "./component/Product";
+import Malfuntion from "./component/404";
+import Blog from "./component/Blog";
+import Bdetail from "./component/Bdetail";
 
 // import "./index.html";
 
@@ -49,6 +52,9 @@ root.render(
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/404" element={<Malfuntion />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog-detail" element={<Bdetail />} />
         </Routes>
       </App>
     </Router>

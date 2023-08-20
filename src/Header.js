@@ -203,21 +203,21 @@ function Header() {
                     </ul>
                   </li>
                   <li className="dropdown">
-                    <a href="#">
+                    <Link to="/blog">
                       Blog
                       <i className="fa fa-angle-down" />
-                    </a>
+                    </Link>
                     <ul role="menu" className="sub-menu">
                       <li>
                         <a href="blog.html">Blog List</a>
                       </li>
                       <li>
-                        <a href="blog-single.html">Blog Single</a>
+                        <Link to="/blog-detail">Blog Single</Link>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <a href="404.html">404</a>
+                    <Link to="/404">404</Link>
                   </li>
                   <li>
                     <Link to="/contact">Contact</Link>

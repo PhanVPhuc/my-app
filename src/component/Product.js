@@ -3,9 +3,6 @@ import React from "react";
 function Product() {
   return (
     <div className="App">
-      <>
-        <h1>Hello Products</h1>
-      </>
       <section>
         <div className="container">
           <div className="row">
