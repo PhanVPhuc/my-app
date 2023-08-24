@@ -57,8 +57,8 @@ function Greeting(props) {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <Greeting isLoggedIn={false} />
-    {/* <React.StrictMode>
+    {/* <Greeting isLoggedIn={false} /> */}
+    <React.StrictMode>
       <Router>
         <App>
           <Routes>
@@ -75,7 +75,7 @@ root.render(
           </Routes>
         </App>
       </Router>
-    </React.StrictMode> */}
+    </React.StrictMode>
   </>
 );
 

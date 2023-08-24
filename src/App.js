@@ -15,11 +15,11 @@ function App(props) {
   }
 
   return (
-    // <div>
-    //   <Header />
-    //   {props.children}
-    //   <Footer />
-    // </div>
+    <div>
+      <Header />
+      {props.children}
+      <Footer />
+    </div>
 
     // <>
     //   <p> Day la trang app</p>
@@ -27,11 +27,11 @@ function App(props) {
     //   <button onClick={change}> Click me! </button>
     // </>
 
-    <>
-      <p> Day la trang thuat toan 3 ngoi </p>
-      {getItem == true ? "Đúng" : "Sai"}
-      <button onClick={change}> Click me! </button>
-    </>
+    // <>
+    //   <p> Day la trang thuat toan 3 ngoi </p>
+    //   {getItem == true ? "Đúng" : "Sai"}
+    //   <button onClick={change}> Click me! </button>
+    // </>
   );
 }
 
