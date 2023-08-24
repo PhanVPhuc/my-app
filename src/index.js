@@ -74,26 +74,46 @@ import LoginButton from "./component/LoginButon";
 //   }
 // }
 
-function Chu(props) {
-  return <h1>Welcome Back!</h1>;
-}
-function Khach(props) {
-  return <h1>Please sign up!</h1>;
+// function Chu(props) {
+//   return <h1>Welcome Back!</h1>;
+// }
+// function Khach(props) {
+//   return <h1>Please sign up!</h1>;
+// }
+
+// function Greeting(props) {
+//   const isLoggedIn = props.isLoggedIn;
+//   if (isLoggedIn) {
+//     return <Chu />;
+//   }
+//   return <Khach />;
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// const Listed = numbers.map((numbers) => <li> {numbers} </li>);
+// const doubled = numbers.map((numbers) => numbers * 2);
+// console.log("doubled", doubled); //[2, 4, 6, 8, 10]
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((value, key) => <li key={key}>{value}</li>);
+  return (
+    <div className="App">
+      <ul>{listItems}</ul>
+    </div>
+  );
 }
 
-function Greeting(props) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
-    return <Chu />;
-  }
-  return <Khach />;
-}
+const numbers = [1, 2, 3, 4, 5];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     {/* <LoginControl /> */}
-    <React.StrictMode>
+    {/* <ul>{Listed}</ul> */}
+    alooo
+    <NumberList numbers={numbers} />
+    {/* <React.StrictMode>
       <Router>
         <App>
           <Routes>
@@ -110,7 +130,7 @@ root.render(
           </Routes>
         </App>
       </Router>
-    </React.StrictMode>
+    </React.StrictMode> */}
   </>
 );
 
