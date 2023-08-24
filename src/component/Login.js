@@ -2,28 +2,6 @@ import React from "react";
 import { useState } from "react";
 
 function Login() {
-  // const [name, setName] = useState("Moi ban nhap username");
-  // const [pass, setPass] = useState("Moi ban nhap password");
-  // const isLogin = () => {
-  //   setName("Moi ban nhap username");
-  //   setPass("Moi ban nhap password");
-  // };
-
-  function userGreeting(props) {
-    return <h1>Welcome Back!</h1>;
-  }
-  function guestGreeting(props) {
-    return <h1>Please sign up!</h1>;
-  }
-
-  function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn;
-    if (isLoggedIn) {
-      return <userGreeting />;
-    }
-    return <guestGreeting />;
-  }
-
   return (
     <div className="App">
       <section id="form">

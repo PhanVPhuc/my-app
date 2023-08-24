@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -25,40 +25,58 @@ import Bdetail from "./component/Bdetail";
 // function Welcome(props) {
 //   return <h1>Hello : {props.name}</h1>;
 // }
-function PhucHeo(data) {
-  console.log(data);
-  return data; // return đa ta để khi xuất hàm p ở dưới sẽ cho lại data trên
-}
+// function PhucHeo(data) {
+//   console.log(data);
+//   return data; // return đa ta để khi xuất hàm p ở dưới sẽ cho lại data trên
+// }
 // let html = <Welcome name=" Phuc Phan" />;
-let x = 123;
+// let x = 123;
 // let obj = {
 //   name: "Phuc Phan",
 //   age: 20,
 //   123: " Text ? ",
 // };
 // let y = "Toi la Phuc";
-let ham = <p> day la the p {PhucHeo(x)} </p>;
+// let ham = <p> day la the p {PhucHeo(x)} </p>;
+
+function userGreeting(props) {
+  return <h1>Welcome Back!</h1>;
+}
+function guestGreeting(props) {
+  return <h1>Please sign up!</h1>;
+}
+
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <userGreeting />;
+  }
+  return <guestGreeting />;
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <App>
-        <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/404" element={<Malfuntion />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-detail" element={<Bdetail />} />
-        </Routes>
-      </App>
-    </Router>
-  </React.StrictMode>
+  <>
+    <Greeting isLoggedIn={false} />
+    {/* <React.StrictMode>
+      <Router>
+        <App>
+          <Routes>
+            <Route index path="/" element={<Home />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/404" element={<Malfuntion />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog-detail" element={<Bdetail />} />
+          </Routes>
+        </App>
+      </Router>
+    </React.StrictMode> */}
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
