@@ -39,19 +39,19 @@ import Bdetail from "./component/Bdetail";
 // let y = "Toi la Phuc";
 // let ham = <p> day la the p {PhucHeo(x)} </p>;
 
-function userGreeting(props) {
+function Chu(props) {
   return <h1>Welcome Back!</h1>;
 }
-function guestGreeting(props) {
+function Khach(props) {
   return <h1>Please sign up!</h1>;
 }
 
 function Greeting(props) {
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
-    return <userGreeting />;
+    return <Chu />;
   }
-  return <guestGreeting />;
+  return <Khach />;
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
