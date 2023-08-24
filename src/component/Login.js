@@ -4,7 +4,7 @@ import LoginButton from "./LoginButon";
 import LogoutButton from "./LogoutButton";
 
 function Login() {
-  const [isToogle, setIsToogle] = useState(false);
+  const [isToogle, setIsToogle] = useState(true);
 
   function handleLoginClick() {
     setIsToogle(!isToogle);
@@ -19,9 +19,13 @@ function Login() {
     } else {
       button = <LoginButton onClick={handleLoginClick} />;
     }
+    return button;
   }
   return (
-    <div>{renderButton()}</div>
+    <div className="App">
+      <h1> Chao em </h1>
+      {renderButton()}
+    </div>
     //what the hell ??
 
     // <div className="App">
