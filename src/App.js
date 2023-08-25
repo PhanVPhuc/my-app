@@ -13,13 +13,28 @@ function App(props) {
   function change() {
     setItem(false);
   }
-  function renderData() {
-    let { arr } = props;
-    if (arr.length > 0) {
-      return arr.map((value, key) => {
+
+  // MAP theo array
+  // function renderData() {
+  //   let { arr } = props;
+  //   if (arr.length > 0) {
+  //     return arr.map((value, key) => {
+  //       return (
+  //         // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
+  //         <li key={key}>{value}</li>
+  //       );
+  //     });
+  //   }
+  // }
+
+  // MAP theo obj
+  function renderDataObj() {
+    let { obj } = props;
+    if (Object.keys(obj).length > 0) {
+      return Object.keys(obj).map((key, index) => {
         return (
           // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
-          <li key={key}>{value}</li>
+          <li key={key}>{obj[key]}</li>
         );
       });
     }
@@ -36,7 +51,8 @@ function App(props) {
     // hiển thị html
     <div>
       <p> MAP theo Array </p>
-      <ul>{renderData()}</ul>
+      {/* <ul>{renderData()}</ul> */}
+      <ul>{renderDataObj()}</ul>
     </div>
 
     // <>
