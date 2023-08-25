@@ -118,7 +118,6 @@ root.render(
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
     {/* <NumberList numbers={numbers} /> */}
-    alooo
     <React.StrictMode>
       <App obj={obj} arr={arr} />
     </React.StrictMode>

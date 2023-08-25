@@ -51,7 +51,8 @@ function App(props) {
     // hiển thị html
     <div>
       <p> MAP theo Array </p>
-      {/* <ul>{renderData()}</ul> */}
+      <ul>{renderData()}</ul>
+      <p> MAP theo Object </p>
       <ul>{renderDataObj()}</ul>
     </div>
 
