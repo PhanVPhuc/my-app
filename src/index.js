@@ -104,6 +104,12 @@ function NumberList(props) {
   );
 }
 
+const arr = ["iphone", "samsung", "iphobe2", "iphone3", "iphone4"];
+const obj = {
+  name: "Phucfan",
+  age: 18,
+};
+
 const numbers = [1, 2, 3, 4, 5];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -111,8 +117,11 @@ root.render(
   <>
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
+    {/* <NumberList numbers={numbers} /> */}
     alooo
-    <NumberList numbers={numbers} />
+    <React.StrictMode>
+      <App obj={obj} arr={arr} />
+    </React.StrictMode>
     {/* <React.StrictMode>
       <Router>
         <App>

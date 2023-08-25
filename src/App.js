@@ -13,12 +13,30 @@ function App(props) {
   function change() {
     setItem(false);
   }
+  function renderData() {
+    let { arr } = props;
+    if (arr.length > 0) {
+      return arr.map((value, key) => {
+        return (
+          // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
+          <li key={key}>{value}</li>
+        );
+      });
+    }
+  }
 
+  // re-return khi useState thay đổi ở funtion renderData
   return (
+    // <div>
+    //   <Header />
+    //   {props.children}
+    //   <Footer />
+    // </div>
+
+    // hiển thị html
     <div>
-      <Header />
-      {props.children}
-      <Footer />
+      <p> MAP theo Array </p>
+      <ul>{renderData()}</ul>
     </div>
 
     // <>
