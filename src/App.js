@@ -15,17 +15,17 @@ function App(props) {
   }
 
   // MAP theo array
-  // function renderData() {
-  //   let { arr } = props;
-  //   if (arr.length > 0) {
-  //     return arr.map((value, key) => {
-  //       return (
-  //         // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
-  //         <li key={key}>{value}</li>
-  //       );
-  //     });
-  //   }
-  // }
+  function renderData() {
+    let { arr } = props;
+    if (arr.length > 0) {
+      return arr.map((value, key) => {
+        return (
+          // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
+          <li key={key}>{value}</li>
+        );
+      });
+    }
+  }
 
   // MAP theo obj
   function renderDataObj() {
