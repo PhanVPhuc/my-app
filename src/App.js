@@ -9,16 +9,19 @@ function App(props) {
   // Let : khai báo biến cố định
 
   // Lưu data vào state (giống biến toàn cục )
-  const [getItem, setItem] = useState(true);
-  function change() {
-    setItem(false);
-  }
+  // const [getItem, setItem] = useState(true);
+  // function change() {
+  //   setItem(false);
+  // }
 
   // MAP theo array
   function renderData() {
     let { arr } = props;
+    // kiểm tra arr có dữ liệu hay không
     if (arr.length > 0) {
+      // return map
       return arr.map((value, key) => {
+        // return HTML
         return (
           // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
           <li key={key}>{value}</li>
@@ -30,12 +33,18 @@ function App(props) {
   // MAP theo obj
   function renderDataObj() {
     let { obj } = props;
+    // kiểm tra obj có dữ liệu hay không
     if (Object.keys(obj).length > 0) {
+      // return map
       return Object.keys(obj).map((key, index) => {
+        // return HTML
         return (
           // key : đánh dấu số thứ tự các thẻ khỏi trùng nhau
-          <li key={key}>{obj[key]}</li>
+          <li key={key}>{obj[key]}
+            
+          </li>
         );
+
       });
     }
   }
