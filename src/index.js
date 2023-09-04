@@ -21,6 +21,7 @@ import Blog from "./component/Blog";
 import Bdetail from "./component/Bdetail";
 import LogoutButton from "./component/LogoutButton";
 import LoginButton from "./component/LoginButon";
+import Test from "./component/bai13";
 
 // import "./index.html";
 
@@ -120,6 +121,7 @@ root.render(
     {/* <NumberList numbers={numbers} /> */}
     <React.StrictMode>
       <App obj={obj} arr={arr} />
+      <Test />
     </React.StrictMode>
     {/* <React.StrictMode>
       <Router>
