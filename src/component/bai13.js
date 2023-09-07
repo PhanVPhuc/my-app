@@ -59,6 +59,8 @@ import React, { useState } from "react";
 // export default App;
 
 function Test(props) {
+  // textarea-tag
+
   // const [getContent, setContent] = useState("");
   // const [errE, setErrE] = useState("");
 
@@ -90,21 +92,21 @@ function Test(props) {
   const [errE, setErrE] = useState("");
 
   function handleInput(e) {
-    e.preventDefault();
+    setInput(e.target.value);
   }
   function handleSubmit(e) {
-    e.preventDefault;
+    e.preventDefault();
 
     if (getInput == "") {
       setErrE("Nhap INPUT");
     } else {
-      setErrE("");
+      setErrE("U R GAY ");
     }
   }
 
   return (
     <div>
-      <form onClick={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <select value={getInput} onChange={handleInput}>
           <option value=""> Vui long chon </option>
           <option value="1"> Male</option>
