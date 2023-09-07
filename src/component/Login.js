@@ -3,28 +3,77 @@ import { useState } from "react";
 import LoginButton from "./LoginButon";
 import LogoutButton from "./LogoutButton";
 
-function Login() {
-  const [isToogle, setIsToogle] = useState(true);
+// function Login() {
+//   const [isToogle, setIsToogle] = useState(true);
 
-  function handleLoginClick() {
-    setIsToogle(!isToogle);
-  }
-  const handleLogoutClick = () => {
-    setIsToogle(!isToogle);
+//   function handleLoginClick() {
+//     setIsToogle(!isToogle);
+//   }
+//   const handleLogoutClick = () => {
+//     setIsToogle(!isToogle);
+//   };
+//   function renderButton() {
+//     let button;
+//     if (isToogle) {
+//       button = <LogoutButton onClick={handleLogoutClick} />;
+//     } else {
+//       button = <LoginButton onClick={handleLoginClick} />;
+//     }
+//     return button;
+//   }
+
+function Login() {
+  const [inputs, setInputs] = useState({
+    email: "",
+    pass: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleInput = (e) => {
+    const nameInput = e.target.name;
+    const valueInput = e.target.value;
+    setInputs((state) => ({ ...state, [nameInput]: valueInput }));
   };
-  function renderButton() {
-    let button;
-    if (isToogle) {
-      button = <LogoutButton onClick={handleLogoutClick} />;
-    } else {
-      button = <LoginButton onClick={handleLoginClick} />;
+  function handleSubmit(e) {
+    e.preventDefault();
+    let errorsSubmit = {};
+    let flag = true;
+
+    if (inputs.emial == "") {
+      errorsSubmit.email = "vui long nhap Email";
     }
-    return button;
+    if (inputs.pass == "") {
+      errorsSubmit.pass = " Vui long nhap Pass! ";
+      flag = false;
+    }
+    if (!flag) {
+      setErrors(errorsSubmit);
+    }
+  }
+
+  function renderError() {
+    if (Object.keys(errors).length > 0) {
+      return Object.keys(errors).map((key, index) => {
+        return <li key={index}> {error[key]}</li>;
+      });
+    }
   }
   return (
     <div className="App">
-      <h1> Chao em </h1>
-      {renderButton()}
+      <h1> Chao em , ít thì 5 quả trứng , nhiều thì 1 tên lửa </h1>
+      {/* {renderButton()} */}
+      {renderError()}
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Email" name="email">
+          onChange={handleInput}
+        </input>
+        <input type="password" placeholder="Nhap pass di " name="password">
+          onChange={handleInput}
+        </input>
+        <button type="submit" className="btn btn-default">
+          Login !
+        </button>
+      </form>
     </div>
     //what the hell ??
 
