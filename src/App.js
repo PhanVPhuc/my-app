@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
-// import "./App.css";
-// import React, { useState } from "react";
+import "./App.css";
+import React, { useState } from "react";
 // import Footer from "./Footer";
 // import Header from "./Header";
 
@@ -80,8 +80,6 @@
 // }
 
 // export default App;
-
-import { useState } from "react";
 
 // cau truc 1 component : la nhung doan html dc viet ben trong js
 function App(props) {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 // // cau truc 1 component : la nhung doan html dc viet ben trong js
 // function App(props) {
@@ -59,27 +59,60 @@ import { useState } from "react";
 // export default App;
 
 function Test(props) {
-  const [getContent, setContent] = useState("");
+  // const [getContent, setContent] = useState("");
+  // const [errE, setErrE] = useState("");
+
+  // function handleContent(e) {
+  //   // e.target.value : lay value nhap vao
+  //   // e.target.id => lay id
+  //   setContent(e.target.value);
+  // }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+
+  //   if (getContent == "") {
+  //     setErrE("Nhap content pls");
+  //   }
+  // }
+  // return (
+  //   <div>
+  //     <form onSubmit={handleSubmit}>
+  //       <textarea onChange={handleContent}>{getContent}</textarea>
+  //       <p>{errE} </p>
+  //       <button type="submit"> click </button>
+  //     </form>
+  //   </div>
+  // );
+
+  // select-tag
+
+  const [getInput, setInput] = useState("");
   const [errE, setErrE] = useState("");
 
-  function handleContent(e) {
-    // e.target.value : lay value nhap vao
-    // e.target.id => lay id
-    setContent(e.target.value);
+  function handleInput(e) {
+    e.preventDefault();
   }
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault;
 
-    if ((getContent = "")) {
-      setErrE("Nhap content pls");
+    if (getInput == "") {
+      setErrE("Nhap INPUT");
+    } else {
+      setErrE("");
     }
   }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <textarea onChange={handleContent}>{getContent}</textarea>
-        <p>{errE} </p>
-        <button type="submit"> click </button>
+      <form onClick={handleSubmit}>
+        <select value={getInput} onChange={handleInput}>
+          <option value=""> Vui long chon </option>
+          <option value="1"> Male</option>
+          <option value="2"> Female</option>
+          <option value="3">ATTACK HELICOPTER</option>
+        </select>
+        <p> {errE} </p>
+        <button type="submit"> CLick me ! </button>
       </form>
     </div>
   );
