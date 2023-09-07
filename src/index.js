@@ -119,11 +119,11 @@ root.render(
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
     {/* <NumberList numbers={numbers} /> */}
-    <React.StrictMode>
+    {/* <React.StrictMode>
       <App obj={obj} arr={arr} />
       <Test />
-    </React.StrictMode>
-    {/* <React.StrictMode>
+    </React.StrictMode> */}
+    <React.StrictMode>
       <Router>
         <App>
           <Routes>
@@ -140,7 +140,7 @@ root.render(
           </Routes>
         </App>
       </Router>
-    </React.StrictMode> */}
+    </React.StrictMode>
   </>
 );
 
