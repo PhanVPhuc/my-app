@@ -64,12 +64,20 @@ function Login(props) {
       {/* {renderButton()} */}
       {renderError()}
       <form onSubmit={handleSubmit}>
-        {/* <input type="text" placeholder="Email" name="email">
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
           onChange={handleInput}
-        </input>
-        <input type="password" placeholder="Nhap pass di " name="password">
+        ></input>
+
+        <input
+          type="password"
+          placeholder="Nhap pass di "
+          name="password"
           onChange={handleInput}
-        </input> */}
+        ></input>
+
         <button type="submit" className="btn btn-default">
           Login !
         </button>
