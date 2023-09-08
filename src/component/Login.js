@@ -22,7 +22,7 @@ import LogoutButton from "./LogoutButton";
 //     return button;
 //   }
 
-function Login() {
+function Login(props) {
   const [inputs, setInputs] = useState({
     email: "",
     pass: "",
@@ -38,9 +38,9 @@ function Login() {
     e.preventDefault();
     let errorsSubmit = {};
     let flag = true;
-
-    if (inputs.emial == "") {
+    if (inputs.email == "") {
       errorsSubmit.email = "vui long nhap Email";
+      flag = false;
     }
     if (inputs.pass == "") {
       errorsSubmit.pass = " Vui long nhap Pass! ";
@@ -64,12 +64,12 @@ function Login() {
       {/* {renderButton()} */}
       {renderError()}
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Email" name="email">
+        {/* <input type="text" placeholder="Email" name="email">
           onChange={handleInput}
         </input>
         <input type="password" placeholder="Nhap pass di " name="password">
           onChange={handleInput}
-        </input>
+        </input> */}
         <button type="submit" className="btn btn-default">
           Login !
         </button>
