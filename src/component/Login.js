@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import LoginButton from "./LoginButon";
 import LogoutButton from "./LogoutButton";
+import Error from "./Error-form";
 
 // function Login() {
 //   const [isToogle, setIsToogle] = useState(true);
@@ -46,8 +47,11 @@ function Login(props) {
       errorsSubmit.pass = " Vui long nhap Pass! ";
       flag = false;
     }
-    if (!flag) {
-      setErrors(errorsSubmit);
+    // if (!flag) {
+    //   setErrors(errorsSubmit);
+    // }
+    else {
+      setErrors({});
     }
   }
 
@@ -60,9 +64,10 @@ function Login(props) {
   }
   return (
     <div className="App">
-      <h1> Chao em , ít thì 5 quả trứng , nhiều thì 1 tên lửa </h1>
+      <h1> Hello em , ít thì 5 quả trứng , nhiều thì 1 tên lửa </h1>
       {/* {renderButton()} */}
-      {renderError()}
+      {/* {renderError() */}
+      <Error errors={errors} />
       <form onSubmit={handleSubmit}>
         <input
           type="text"
