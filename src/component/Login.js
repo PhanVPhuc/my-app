@@ -47,27 +47,30 @@ function Login(props) {
       errorsSubmit.pass = " Vui long nhap Pass! ";
       flag = false;
     }
-    // if (!flag) {
-    //   setErrors(errorsSubmit);
-    // }
-    else {
+    if (!flag) {
+      // setErrors({});
+      setErrors(errorsSubmit);
+      // console.log("ads");
+    } else {
       setErrors({});
+      // setErrors(errorsSubmit);
+      // console.log("ads");
     }
   }
 
-  function renderError() {
-    if (Object.keys(errors).length > 0) {
-      return Object.keys(errors).map((key, index) => {
-        return <li key={index}> {errors[key]}</li>;
-      });
-    }
-  }
+  // function renderError() {
+  //   if (Object.keys(errors).length > 0) {
+  //     return Object.keys(errors).map((key, index) => {
+  //       return <li key={index}> {errors[key]}</li>;
+  //     });
+  //   }
+  // }
   return (
     <div className="App">
       <h1> Hello em , ít thì 5 quả trứng , nhiều thì 1 tên lửa </h1>
       {/* {renderButton()} */}
       {/* {renderError() */}
-      <Error errors={errors} />
+      <Error error={errors} />
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -79,7 +82,7 @@ function Login(props) {
         <input
           type="password"
           placeholder="Nhap pass di "
-          name="password"
+          name="pass"
           onChange={handleInput}
         ></input>
 
