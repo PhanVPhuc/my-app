@@ -3,6 +3,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import Bai32 from "./component/bai-32-Register";
 
 function App(props) {
   // propslay cac bien truyen qua cac component
@@ -49,9 +50,9 @@ function App(props) {
   // re-return khi useState thay đổi ở funtion renderData
   return (
     <div>
-      <Header />
+      {/* <Header />
       {props.children}
-      <Footer />
+      <Footer /> */}
     </div>
 
     // hiển thị html

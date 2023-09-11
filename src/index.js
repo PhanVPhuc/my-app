@@ -22,6 +22,7 @@ import Bdetail from "./component/Bdetail";
 import LogoutButton from "./component/LogoutButton";
 import LoginButton from "./component/LoginButon";
 import Test from "./component/bai13";
+import Bai32 from "./component/bai-32-Register";
 
 // import "./index.html";
 
@@ -119,11 +120,13 @@ root.render(
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
     {/* <NumberList numbers={numbers} /> */}
-    {/* <React.StrictMode>
-      <App obj={obj} arr={arr} />
-      <Test />
-    </React.StrictMode> */}
     <React.StrictMode>
+      {/* <App obj={obj} arr={arr} /> */}
+      {/* <Test /> */}
+      <App />
+      <Bai32 />
+    </React.StrictMode>
+    {/* <React.StrictMode>
       <Router>
         <App>
           <Routes>
@@ -140,7 +143,7 @@ root.render(
           </Routes>
         </App>
       </Router>
-    </React.StrictMode>
+    </React.StrictMode> */}
   </>
 );
 
