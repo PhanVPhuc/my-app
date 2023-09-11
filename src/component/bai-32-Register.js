@@ -6,9 +6,33 @@ function Bai32() {
     return regex.test(email);
   }
 
+  function Sexoption(e) {
+    e.preventDefault();
+    const arr = [
+      {
+        id: "",
+        name: "vui lòng chon",
+      },
+      {
+        id: 1,
+        name: "Male",
+      },
+      {
+        id: 2,
+        name: "Female",
+      },
+    ];
+
+    <select>
+      {arr.data.map((key, value) => (
+        <option value={key.id}>{value.name}</option>
+      ))}
+    </select>;
+  }
+
   return (
     <form enctype="multipart/form-data">
-      Email :{" "}
+      Email :
       <input
         type="email"
         name="email"
@@ -16,12 +40,10 @@ function Bai32() {
         onChange={isEmail}
       ></input>
       Pass : <input type="pass" name="pass" placeholder="Pass ? "></input>
-      Avatar : <input type="file"> </input>
-      Sex :{" "}
+      {/* Avatar : <input type="file"> </input> */}
+      Sex :
       <select>
-        <option value=""> Vui long chon </option>
-        <option value="1"> Male</option>
-        <option value="2"> Female</option>
+        <option onChange={Sexoption}></option>
       </select>
     </form>
   );
