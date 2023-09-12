@@ -6,6 +6,38 @@ function Bai32() {
     return regex.test(email);
   }
 
+  const Select = ({ id, option, onChange }) => {
+    return (
+      <select id={id} onChange={onChange}>
+        {" "}
+        {option.map((option) => {
+          return (
+            <option key={option.id} id={option.id}>
+              {option.name}
+            </option>
+          );
+        })}
+      </select>
+    );
+  };
+
+  const arr = [
+    {
+      id: "",
+      name: "vui lòng chon",
+    },
+    {
+      id: 1,
+      name: "Male",
+    },
+    {
+      id: 2,
+      name: "Female",
+    },
+  ];
+
+  
+
   return (
     <form enctype="multipart/form-data">
       Email :{" "}

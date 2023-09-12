@@ -123,7 +123,7 @@ root.render(
     <React.StrictMode>
       {/* <App obj={obj} arr={arr} /> */}
       {/* <Test /> */}
-      <App />
+      {/* <App /> */}
       <Bai32 />
     </React.StrictMode>
     {/* <React.StrictMode>
