@@ -1,5 +1,7 @@
 import React from "react";
 
+// eslint-disable-next-line
+
 function Contact() {
   return (
     <div className="App">
