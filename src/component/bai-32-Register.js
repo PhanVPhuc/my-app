@@ -9,7 +9,6 @@ function Bai32() {
   const Select = ({ id, option, onChange }) => {
     return (
       <select id={id} onChange={onChange}>
-        {" "}
         {option.map((option) => {
           return (
             <option key={option.id} id={option.id}>
@@ -35,26 +34,32 @@ function Bai32() {
       name: "Female",
     },
   ];
-
-  
-
+  const [id, setId] = React.useState("");
+  const handleChange = (e) => setId(e.target.id);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      Sex: id,
+    };
+    const json = JSON.stringify(data);
+    console.clear();
+    console.log(json);
+  };
   return (
-    <form enctype="multipart/form-data">
-      Email :{" "}
-      <input
-        type="email"
-        name="email"
-        placeholder="Email ? "
-        onChange={isEmail}
-      ></input>
-      Pass : <input type="pass" name="pass" placeholder="Pass ? "></input>
-      Avatar : <input type="file"> </input>
-      Sex :{" "}
-      <select>
-        <option value=""> Vui long chon </option>
-        <option value="1"> Male</option>
-        <option value="2"> Female</option>
-      </select>
+    <form onSubmit={handleSubmit} enctype="multipart/form-data">
+      <div>
+        Email :
+        <input
+          type="email"
+          name="email"
+          placeholder="Email ? "
+          onChange={isEmail}
+        ></input>
+        Pass : <input type="pass" name="pass" placeholder="Pass ? "></input>
+        Avatar : <input type="file"> </input>
+        Sex :<select value={id} option={arr} onChange={handleChange} />
+      </div>
+      <button type="submit"> Submit ! </button>
     </form>
   );
 }
