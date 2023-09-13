@@ -59,13 +59,22 @@ import React from "react";
 // import ReactDOM from 'react-dom';
 
 const colors = [
-  { value: "red", text: "Red" },
-  { value: "yellow", text: "Yellow" },
-  { value: "blue", text: "Blue" },
+  {
+    id: "",
+    name: "vui lòng chon",
+  },
+  {
+    id: "1",
+    name: "Male",
+  },
+  {
+    id: "2",
+    name: "Female",
+  },
 ];
 
-const App = () => {
-  const [color, setColor] = React.useState("red");
+const Bai32 = () => {
+  const [color, setColor] = React.useState("");
   const handleChange = (e) => setColor(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,8 +93,8 @@ const App = () => {
           <select value={color} onChange={handleChange}>
             {colors.map((item) => {
               return (
-                <option key={item.value} value={item.value}>
-                  {item.text}
+                <option key={item.id} value={item.id}>
+                  {item.name}
                 </option>
               );
             })}
@@ -97,4 +106,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Bai32;
