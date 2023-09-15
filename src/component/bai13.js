@@ -88,7 +88,7 @@ function Test(props) {
 
   // select-tag
 
-  // console.log(props);
+  // console.log(props); 
 
   const [getInput, setInput] = useState("");
   const [errE, setErrE] = useState("");

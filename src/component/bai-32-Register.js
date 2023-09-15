@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Error from "./Error-form";
 
 function Bai32(props) {
   function isEmail(email) {
@@ -48,42 +49,76 @@ function Bai32(props) {
     // }
   };
 
+  const [inputs, setInputs] = useState({
+    email: " ",
+    pass: "",
+  });
+  const [error, setError] = useState({});
+
+  const handleInput = (e) => {
+    const nameInput = e.target.name;
+    const valueInput = e.target.value;
+    setInputs((state) => ({ ...state, [nameInput]: valueInput }));
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
     let errorSubmit = {};
     let flag = true;
+
+    if (inputs.email == "") {
+      errorSubmit.email = "vui long nhap email";
+      flag = false;
+    }
+    if (inputs.pass == "") {
+      errorSubmit.pass = " Vui long nhap Pass! ";
+      flag = false;
+    }
+    if (!flag) {
+      setError(errorSubmit);
+    } else {
+      setError({});
+    }
   }
 
   return (
-    <form enctype="multipart/form-data">
-      <div>
-        Email :
-        <input
-          type="email"
-          name="email"
-          placeholder="Email ? "
-          onChange={isEmail}
-        ></input>{" "}
-        <br />
-        Pass : <input
-          type="pass"
-          name="pass"
-          placeholder="Pass ? "
-        ></input>{" "}
-        <br />
-        Avatar :
-        <input type="file" onChange={onImageChange} className="filetype" />
-        <img alt="preview image" src={image} />
-        <br />
-        Sex :
-        <select>
-          {sexOption()}
-          {/* nhớ kỹ , khi bốc hàm vào thì phải có () , vd : {demo()} */}
-        </select>
-      </div>
-      <button type="submit"> Submit </button>
-    </form>
+    <div>
+      <Error error={error} />
+      <form enctype="multipart/form-data" onSubmit={handleSubmit}>
+        <div>
+          Email :
+          <input
+            type="email"
+            name="email"
+            placeholder="Email ? "
+            onChange={(isEmail, handleInput)}
+          ></input>{" "}
+          <br />
+          Pass :{" "}
+          <input
+            type="pass"
+            name="pass"
+            placeholder="Pass ? "
+            onChange={handleInput}
+          ></input>{" "}
+          <br />
+          Avatar :
+          <input type="file" onChange={onImageChange} className="filetype" />
+          <img alt="preview image" src={image} />
+          <br />
+          Sex :
+          <select>
+            {sexOption()}
+            {/* nhớ kỹ , khi bốc hàm vào thì phải có () , vd : {demo()} */}
+          </select>
+        </div>
+        <button type="submit"> Submit </button>
+      </form>
+    </div>
   );
 }
 
 export default Bai32;
+
+// tạo onSubmit button , set size ảnh về dưới 10mb
+// kiểm tra onChange function để đưa con nào thiếu để xuất lỗi
