@@ -80,8 +80,7 @@ function Bai32(props) {
       setError({});
     }
   }
-
-  // console.log(inputs);
+  console.log(inputs);
   localStorage.setItem("info", JSON.stringify(inputs));
   return (
     <div>
