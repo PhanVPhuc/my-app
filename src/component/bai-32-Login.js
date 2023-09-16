@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Bai32 from "./bai-32-Register";
+import Error from "./Error-form";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 
 function Bai32Login() {
   function isEmail(email) {
@@ -34,8 +36,22 @@ function Bai32Login() {
       setError(errorSubmit);
     } else {
       setError({});
+      // làm trong này vì khi ta để ở ngoài thì sẽ báo lỗi read only
+      let jj = localStorage.getItem("info");
+      if (jj) {
+        jj = JSON.parse(jj);
+        console.log(jj);
+        if (jj.email == inputs.email && jj.pass == inputs.pass) {
+          console.log("oke roi fen");
+        } else {
+          console.log(" khong oke roi fen");
+        }
+      }
     }
   }
+  const navigateRegister = () => {
+    Navigate("/register");
+  };
   return (
     <div>
       <Error error={error} />
@@ -59,6 +75,17 @@ function Bai32Login() {
         </div>
         <button type="submit"> Submit </button>
       </form>
+
+      <Routes>
+        <Route path="/register" element={<Bai32 />}></Route>
+      </Routes>
+      <ul>
+        <li>
+          <Link to="/register">
+            <i className="fa fa-lock" /> REGISTER
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }

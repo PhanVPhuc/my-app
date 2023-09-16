@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Error from "./Error-form";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
+import Bai32Login from "./bai-32-Login";
 
 function Bai32(props) {
   function isEmail(email) {
@@ -80,7 +82,10 @@ function Bai32(props) {
       setError({});
     }
   }
-  console.log(inputs);
+  const navigateLogin = () => {
+    Navigate("/login");
+  };
+  // console.log(inputs);
   localStorage.setItem("info", JSON.stringify(inputs));
   return (
     <div>
@@ -114,7 +119,15 @@ function Bai32(props) {
           </select>
         </div>
         <button type="submit"> Submit </button>
+        {/* <button onClick={navigateLogin}>LOGIN</button> */}
       </form>
+      <ul>
+        <li>
+          <Link to="/login">
+            <i className="fa fa-lock" /> Login
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }

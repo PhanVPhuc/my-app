@@ -124,9 +124,15 @@ root.render(
     <React.StrictMode>
       {/* <App obj={obj} arr={arr} /> */}
       {/* <Test /> */}
-      <App />
-      <Bai32 />
-      <Bai32Login />
+
+      <Router>
+        <App />
+        <Bai32 />
+        {/* <Bai32Login /> */}
+        <Routes>
+          <Route path="/login" element={<Bai32Login />} />
+        </Routes>
+      </Router>
     </React.StrictMode>
     {/* <React.StrictMode>
       <Router>
