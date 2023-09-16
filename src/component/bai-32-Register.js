@@ -50,7 +50,7 @@ function Bai32(props) {
   };
 
   const [inputs, setInputs] = useState({
-    email: " ",
+    email: "",
     pass: "",
   });
   const [error, setError] = useState({});
@@ -81,6 +81,8 @@ function Bai32(props) {
     }
   }
 
+  // console.log(inputs);
+  localStorage.setItem("info", JSON.stringify(inputs));
   return (
     <div>
       <Error error={error} />
