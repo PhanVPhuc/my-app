@@ -23,6 +23,7 @@ import LogoutButton from "./component/LogoutButton";
 import LoginButton from "./component/LoginButon";
 import Test from "./component/bai13";
 import Bai32 from "./component/bai-32-Register";
+import Bai32Login from "./component/bai-32-Login";
 
 // import "./index.html";
 
@@ -125,6 +126,7 @@ root.render(
       {/* <Test /> */}
       <App />
       <Bai32 />
+      <Bai32Login />
     </React.StrictMode>
     {/* <React.StrictMode>
       <Router>

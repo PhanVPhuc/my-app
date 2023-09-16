@@ -57,6 +57,15 @@ function Login(props) {
       // console.log("ads");
     }
   }
+  // function local() {
+  //   const jj = {};
+  //   jj = localStorage.getItem("info");
+  //   if (jj) {
+  //     jj = JSON.parse(jj);
+  //     inputs = jj;
+  //   }
+  // }
+  localStorage.setItem("info", JSON.stringify(inputs));
 
   // function renderError() {
   //   if (Object.keys(errors).length > 0) {
