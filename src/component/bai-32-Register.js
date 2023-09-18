@@ -51,22 +51,32 @@ function Bai32(props) {
     // }
   };
 
-  function hanldeFile(e) {
+  function handleFile(e) {
     console.log(e.target.files);
-    console.log(e.target.size);
 
-    // => xem no la cai gi, sau do lay all dua vao usestate Để goi xuống xử lý lỗi form cùng với các input khác
-    // if (e.target.size > 10e6) {
-    //   console.log("Please upload a file smaller than 10 MB");
-    // }
-    const maxFileSizeInMB = 2;
-    const maxFileSizeInKB = 1024 * 1024 * maxFileSizeInMB;
-    if (e.target.size > maxFileSizeInKB) {
-      alert("Please select a file that is 2MB or less.");
+    if (e.target.size < 1024 * 1024) {
+      console.log("NO NO only accept img file <  2mb");
     } else {
-      alert("File uploaded successfully!");
+      console.log("OKE");
     }
   }
+  // const { useState } = React;
+  // const [fileSizeExceeded, setFileSizeExceeded] = React.useState(false);
+  // const maxFileSize = 5000; // 5Kb
+  // // console.log(e.target.files);
+  // const handleFile = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file.size > maxFileSize) {
+  //     setFileSizeExceeded(true);
+  //     return; // do not process the file if it exceeds the size limit
+  //   }
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     setFileSizeExceeded(false);
+  //     // do something with the file
+  //   };
+  //   reader.readAsArrayBuffer(file);
+  // };
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -128,12 +138,17 @@ function Bai32(props) {
           Avatar :
           <input
             type="file"
-            onChange={(onImageChange, handleInput, hanldeFile)}
+            onChange={onImageChange}
+            onChangeCapture={handleFile}
             className="filetype"
             accept="image/png, image/jpeg , image/jpg"
           />
           <img alt="preview image" src={image} />
-          <h2 id="status"></h2>
+          {/* {fileSizeExceeded && (
+            <p className="error">
+              File size exceeded the limit of {maxFileSize / 1000} KB
+            </p>
+          )} */}
           <br />
           Sex :
           <select>
@@ -158,4 +173,3 @@ function Bai32(props) {
 export default Bai32;
 
 // tạo onSubmit button , set size ảnh về dưới 10mb
-// kiểm tra onChange function để đưa con nào thiếu để xuất lỗi
