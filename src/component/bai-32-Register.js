@@ -53,8 +53,19 @@ function Bai32(props) {
 
   function hanldeFile(e) {
     console.log(e.target.files);
+    console.log(e.target.size);
 
     // => xem no la cai gi, sau do lay all dua vao usestate Để goi xuống xử lý lỗi form cùng với các input khác
+    // if (e.target.size > 10e6) {
+    //   console.log("Please upload a file smaller than 10 MB");
+    // }
+    const maxFileSizeInMB = 2;
+    const maxFileSizeInKB = 1024 * 1024 * maxFileSizeInMB;
+    if (e.target.size > maxFileSizeInKB) {
+      alert("Please select a file that is 2MB or less.");
+    } else {
+      alert("File uploaded successfully!");
+    }
   }
 
   const [inputs, setInputs] = useState({
@@ -117,10 +128,12 @@ function Bai32(props) {
           Avatar :
           <input
             type="file"
-            onChange={(onImageChange, hanldeFile)}
+            onChange={(onImageChange, handleInput, hanldeFile)}
             className="filetype"
+            accept="image/png, image/jpeg , image/jpg"
           />
           <img alt="preview image" src={image} />
+          <h2 id="status"></h2>
           <br />
           Sex :
           <select>

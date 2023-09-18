@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Error(props) {
-  console.log(props);
+  // console.log(props);
   //   console.log("ads");
   function renderError() {
     let { error } = props;
