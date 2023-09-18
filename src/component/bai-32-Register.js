@@ -51,6 +51,12 @@ function Bai32(props) {
     // }
   };
 
+  function hanldeFile(e) {
+    console.log(e.target.files);
+
+    // => xem no la cai gi, sau do lay all dua vao usestate Để goi xuống xử lý lỗi form cùng với các input khác
+  }
+
   const [inputs, setInputs] = useState({
     email: "",
     pass: "",
@@ -109,7 +115,11 @@ function Bai32(props) {
           ></input>{" "}
           <br />
           Avatar :
-          <input type="file" onChange={onImageChange} className="filetype" />
+          <input
+            type="file"
+            onChange={(onImageChange, hanldeFile)}
+            className="filetype"
+          />
           <img alt="preview image" src={image} />
           <br />
           Sex :
