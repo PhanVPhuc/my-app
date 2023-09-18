@@ -54,29 +54,20 @@ function Bai32(props) {
   function handleFile(e) {
     console.log(e.target.files);
 
-    if (e.target.size < 1024 * 1024) {
-      console.log("NO NO only accept img file <  2mb");
-    } else {
-      console.log("OKE");
+    // if (e.target.size < 1024 * 1024) {
+    //   window.alert("NO NO only accept img file <  2mb");
+    // } else {
+    //   window.alert("OKE");
+    // }
+    // if (e.target.file != ".png" || e.target.file != ".jpg") {
+    //   window.alert("File does not support. You must use .png or .jpg ");
+    //   return false;
+    // }
+    if (e.target.file.size > 10e6) {
+      window.alert("Please upload a file smaller than 10 MB");
+      return false;
     }
   }
-  // const { useState } = React;
-  // const [fileSizeExceeded, setFileSizeExceeded] = React.useState(false);
-  // const maxFileSize = 5000; // 5Kb
-  // // console.log(e.target.files);
-  // const handleFile = (event) => {
-  //   const file = event.target.files[0];
-  //   if (file.size > maxFileSize) {
-  //     setFileSizeExceeded(true);
-  //     return; // do not process the file if it exceeds the size limit
-  //   }
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => {
-  //     setFileSizeExceeded(false);
-  //     // do something with the file
-  //   };
-  //   reader.readAsArrayBuffer(file);
-  // };
 
   const [inputs, setInputs] = useState({
     email: "",
