@@ -97,10 +97,11 @@ function Bai32(props) {
     if (inputs.image && inputs.image.size > maxSize) {
       errorSubmit.size = "Vui lòng chọn lại ảnh";
       flag = false;
-    } else if (!inputs.image || inputs.image.size === 0) {
-      errorSubmit.size = "Bạn chưa chọn ảnh";
-      flag = false;
     }
+    // else if (!inputs.image || inputs.image.size == 0) {
+    //   errorSubmit.size = "Bạn chưa chọn ảnh";
+    //   flag = false;
+    // }
 
     if (!flag) {
       setError(errorSubmit);
