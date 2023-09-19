@@ -38,35 +38,28 @@ function Bai32(props) {
     });
   }
 
-  const [image, setImage] = useState(null);
-
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
-    }
-
-    // if (event.target.file.size > 10e6) {
-    //   window.alert("Please upload a file smaller than 10 MB");
-    //   return false;
-    // }
-  };
-
   function handleFile(e) {
-    console.log(e.target.files);
+    //khai báo xx vì file là 1 array , khi đó ta xài xx[0(ten file)].size(kich thuoc) để gọi ra file ảnh ta vừa chọn
+    let xx = e.target.files;
+    console.log(xx[0].size);
 
-    // if (e.target.size < 1024 * 1024) {
-    //   window.alert("NO NO only accept img file <  2mb");
-    // } else {
-    //   window.alert("OKE");
-    // }
-    // if (e.target.file != ".png" || e.target.file != ".jpg") {
-    //   window.alert("File does not support. You must use .png or .jpg ");
-    //   return false;
-    // }
-    if (e.target.file.size > 10e6) {
-      window.alert("Please upload a file smaller than 10 MB");
-      return false;
+    let maxSize = 1024 * 1024;
+    console.log(maxSize);
+
+    if (xx[0].size >= maxSize) {
+      window.alert("NO NO , we only accept img file <  2mb");
+      e.preventDefault();
+    } else {
+      window.alert("OKE");
     }
+    const [image, setImage] = useState();
+    // có thực sự đưa hết vào useState không nhỉ ?
+    const onImageChange = (e) => {
+      if (e.target.files && e.target.files[0]) {
+        setImage(URL.createObjectURL(e.target.files[0]));
+      }
+    };
+    // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
   }
 
   const [inputs, setInputs] = useState({
@@ -78,14 +71,25 @@ function Bai32(props) {
   const handleInput = (e) => {
     const nameInput = e.target.name;
     const valueInput = e.target.value;
-    setInputs((state) => ({ ...state, [nameInput]: valueInput }));
+    const imgInput = e.target.files;
+    const imgSize = e.target.files[0].size;
+    //  const imgSize = e.target.files[0].size; cái này nghĩa là gì ta ?
+    // nếu dùng nó tại đây thì ta thực sự có thể lấy được size như name hay value như trên hay k ?
+    setInputs((state) => ({
+      ...state,
+      [nameInput]: valueInput,
+    }));
+    // setImage((state) => ({
+    //   ...state,
+    //   [imgInput]: imgSize,
+    // }));
   };
 
   function handleSubmit(e) {
     e.preventDefault();
+    let maxSize = 1024 * 1024;
     let errorSubmit = {};
     let flag = true;
-
     if (inputs.email == "") {
       errorSubmit.email = "vui long nhap email";
       flag = false;
@@ -94,6 +98,16 @@ function Bai32(props) {
       errorSubmit.pass = " Vui long nhap Pass! ";
       flag = false;
     }
+    // if (image.size == "") {
+    //   // hàm điều kiện cần được sửa lại
+    //   // errorSubmit.size = " Vui long chon anh! ";
+    //   console.log("Vui long chon anh !");
+    //   flag = false;
+    // } else if (image.size > maxSize) {
+    //   // errorSubmit.size = " Vui long chon lai anh! ";
+    //   console.log("Vui long chon lai !");
+    //   flag = false;
+    // }
     if (!flag) {
       setError(errorSubmit);
     } else {
@@ -129,12 +143,11 @@ function Bai32(props) {
           Avatar :
           <input
             type="file"
-            onChange={onImageChange}
-            onChangeCapture={handleFile}
+            onChange={handleFile}
             className="filetype"
             accept="image/png, image/jpeg , image/jpg"
           />
-          <img alt="preview image" src={image} />
+          {/* <img alt="preview image" src={handleFile} /> */}
           {/* {fileSizeExceeded && (
             <p className="error">
               File size exceeded the limit of {maxFileSize / 1000} KB
