@@ -55,15 +55,14 @@ function Bai32(props) {
 
     // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
   }
-  function imageError(e) {
-    const [image, setImage] = useState();
-    // có thực sự đưa hết vào useState không nhỉ ?
-    const onImageChange = (e) => {
-      if (e.target.files && e.target.files[0]) {
-        setImage(URL.createObjectURL(e.target.files[0]));
-      }
-    };
-  }
+  const [image, setImage] = useState();
+  // có thực sự đưa hết vào useState không nhỉ ?
+  const onImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setImage(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+  // function imageError(e) {}
 
   const [inputs, setInputs] = useState({
     email: "",
