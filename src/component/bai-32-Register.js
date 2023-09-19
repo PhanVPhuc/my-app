@@ -38,31 +38,31 @@ function Bai32(props) {
     });
   }
 
-  function handleFile(e) {
+  const handleFile = (e) => {
     //khai báo xx vì file là 1 array , khi đó ta xài xx[0(ten file)].size(kich thuoc) để gọi ra file ảnh ta vừa chọn
     let xx = e.target.files;
-    console.log(xx[0].size);
+    // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
+    setInputs((state) => ({
+      ...state,
+      image: xx[0], // Lưu file được chọn vào trạng thái image
+    }));
+    // có thực sự đưa hết vào useState không nhỉ ?
 
     let maxSize = 1024 * 1024;
-    console.log(maxSize);
-
     if (xx[0].size >= maxSize) {
-      window.alert("NO NO , we only accept img file <  2mb");
+      window.alert("NO NO, chúng tôi chỉ chấp nhận file ảnh < 2mb");
       e.preventDefault();
     } else {
-      window.alert("OKE");
-    }
-
-    // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
-  }
-  const [image, setImage] = useState();
-  // có thực sự đưa hết vào useState không nhỉ ?
-  const onImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]));
+      window.alert("OK");
     }
   };
-  // function imageError(e) {}
+  const [previewImage, setPreviewImage] = useState(null);
+  const onImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      // setImage(URL.createObjectURL(e.target.files[0]));
+      setPreviewImage(URL.createObjectURL(e.target.files[0]));
+    }
+  };
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -73,18 +73,12 @@ function Bai32(props) {
   const handleInput = (e) => {
     const nameInput = e.target.name;
     const valueInput = e.target.value;
-    const imgInput = e.target.files;
-    const imgSize = e.target.files[0].size;
     //  const imgSize = e.target.files[0].size; cái này nghĩa là gì ta ?
     // nếu dùng nó tại đây thì ta thực sự có thể lấy được size như name hay value như trên hay k ?
     setInputs((state) => ({
       ...state,
       [nameInput]: valueInput,
     }));
-    // setImage((state) => ({
-    //   ...state,
-    //   [imgInput]: imgSize,
-    // }));
   };
 
   function handleSubmit(e) {
@@ -100,16 +94,14 @@ function Bai32(props) {
       errorSubmit.pass = " Vui long nhap Pass! ";
       flag = false;
     }
-    // if (image.size == "") {
-    //   // hàm điều kiện cần được sửa lại
-    //   // errorSubmit.size = " Vui long chon anh! ";
-    //   console.log("Vui long chon anh !");
-    //   flag = false;
-    // } else if (image.size > maxSize) {
-    //   // errorSubmit.size = " Vui long chon lai anh! ";
-    //   console.log("Vui long chon lai !");
-    //   flag = false;
-    // }
+    if (inputs.image && inputs.image.size > maxSize) {
+      errorSubmit.size = "Vui lòng chọn lại ảnh";
+      flag = false;
+    } else if (!inputs.image || inputs.image.size === 0) {
+      errorSubmit.size = "Bạn chưa chọn ảnh";
+      flag = false;
+    }
+
     if (!flag) {
       setError(errorSubmit);
     } else {
@@ -145,17 +137,12 @@ function Bai32(props) {
           Avatar :
           <input
             type="file"
-            onChange={handleFile}
-            onChangeCapture={imageError}
+            onChange={onImageChange}
+            onChangeCapture={handleFile}
             className="filetype"
             accept="image/png, image/jpeg , image/jpg"
           />
-          {/* <img alt="preview image" src={handleFile} /> */}
-          {/* {fileSizeExceeded && (
-            <p className="error">
-              File size exceeded the limit of {maxFileSize / 1000} KB
-            </p>
-          )} */}
+          <img alt="preview image" src={previewImage} />
           <br />
           Sex :
           <select>
