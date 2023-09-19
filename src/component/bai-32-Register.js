@@ -52,6 +52,10 @@ function Bai32(props) {
     } else {
       window.alert("OKE");
     }
+
+    // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
+  }
+  function imageError(e) {
     const [image, setImage] = useState();
     // có thực sự đưa hết vào useState không nhỉ ?
     const onImageChange = (e) => {
@@ -59,7 +63,6 @@ function Bai32(props) {
         setImage(URL.createObjectURL(e.target.files[0]));
       }
     };
-    // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
   }
 
   const [inputs, setInputs] = useState({
@@ -144,6 +147,7 @@ function Bai32(props) {
           <input
             type="file"
             onChange={handleFile}
+            onChangeCapture={imageError}
             className="filetype"
             accept="image/png, image/jpeg , image/jpg"
           />
