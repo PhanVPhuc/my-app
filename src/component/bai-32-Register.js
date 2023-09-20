@@ -64,6 +64,30 @@ function Bai32(props) {
     }
   };
 
+  const [getFile, setFile] = useState(""); // lấy toàn bộ data của file
+
+  function xulyFile(e) {
+    setFile(e.target.files);
+  }
+  function xulyForm(e) {
+    if (getFile == "") {
+      window.alert("vui long upload file");
+    } else {
+      // console.log(getFile); => nó sẽ trả về 1 mảng cho mình
+      let getSize = getFile[0].size;
+      let getName = getFile[0].name;
+
+      if (!getName) {
+        window.alert(getName + " khong hop le ");
+      }
+      if (getSize > 1024 * 1024) {
+        window.alert(
+          "File phai nho hon 1mb cho nen " + getSize + "mb qua kich co 1mb"
+        );
+      }
+    }
+  }
+
   const [inputs, setInputs] = useState({
     email: "",
     pass: "",
