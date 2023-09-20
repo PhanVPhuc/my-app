@@ -44,7 +44,7 @@ function Bai32(props) {
     // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
     setInputs((state) => ({
       ...state,
-      image: xx[0], // Lưu file được chọn vào trạng thái image
+      image: xx[0], // Lưu file được chọn vào biến image
     }));
     // có thực sự đưa hết vào useState không nhỉ ?
 
@@ -118,14 +118,11 @@ function Bai32(props) {
       errorSubmit.pass = " Vui long nhap Pass! ";
       flag = false;
     }
+    // dùng biến image khai báo trên xuống này để xử lí form
     if (inputs.image && inputs.image.size > maxSize) {
       errorSubmit.size = "Vui lòng chọn lại ảnh";
       flag = false;
     }
-    // else if (!inputs.image || inputs.image.size == 0) {
-    //   errorSubmit.size = "Bạn chưa chọn ảnh";
-    //   flag = false;
-    // }
 
     if (!flag) {
       setError(errorSubmit);
