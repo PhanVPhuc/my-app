@@ -10,7 +10,11 @@ function App(props) {
   // Let : khai báo biến cố định
 
   // Lưu data vào state (giống biến toàn cục )
+
+  
   // const [getItem, setItem] = useState(true);
+
+
   // function change() {
   //   setItem(false);
   // }

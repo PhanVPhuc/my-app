@@ -65,11 +65,6 @@ function Bai32(props) {
     }
   };
 
-  const [getFile, setFile] = useState(""); // lấy toàn bộ data của file
-
-  function xulyFile(e) {
-    setFile(e.target.files);
-  }
   // function xulyForm(e) {
   //   if (getFile == "") {
   //     window.alert("vui long upload file");
@@ -86,6 +81,11 @@ function Bai32(props) {
   //     }
   //   }
   // }
+  const [getFile, setFile] = useState(""); // lấy toàn bộ data của file
+
+  function xulyFile(e) {
+    setFile(e.target.files);
+  }
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -118,23 +118,33 @@ function Bai32(props) {
       flag = false;
     }
     // dùng biến image khai báo trên xuống này để xử lí form
-    // if (inputs.image && inputs.image.size > maxSize) {
-    //   errorSubmit.size = "Vui lòng chọn lại ảnh";
-    //   flag = false;
-    // }
     if (getFile == "") {
-      errorSubmit[""] = "vui long upload file";
+      // errorSubmit = "vui long upload file"; // truyền biến toàn bộ =>  sai
+      // khi có email và pass thì nó tắt nhưng vẫn bị stuck
+
+      console.log("vui long upload FILE ");
     } else {
-      console.log(getFile); // => nó sẽ trả về 1 mảng cho mình
+      console.log(getFile);
+
       let getSize = getFile[0].size;
       let getName = getFile[0].name;
 
-      if (!getName) {
-        errorSubmit[""] = " ten khong hop le ";
-      }
       if (getSize > maxSize) {
-        errorSubmit[""] = "File phai nho hon 1mb ";
+        // errorSubmit[""] = "File phai nho hon 1mb";
+
+        flag = false;
       }
+
+      // Kiểm tra định dạng file
+      // let validExtensions = ["png", "jpg", "jpeg"];
+      // let fileExtension = getName
+      //   .split(".")
+      //   .pop()
+      //   .toLowerCase();
+      // if (!validExtensions.includes(fileExtension)) {
+      //   errorSubmit[""] = "File ảnh không hợp lệ!";
+      //   flag = false;
+      // }
     }
 
     if (!flag) {
@@ -173,9 +183,9 @@ function Bai32(props) {
           <input
             type="file"
             onChange={onImageChange}
-            onChangeCapture={(handleFile, handleInput)}
+            onChangeCapture={handleSubmit}
             className="filetype"
-            accept="image/png, image/jpeg , image/jpg"
+            // accept="image/png, image/jpeg , image/jpg"
           />
           <img alt="preview image" src={previewImage} />
           <br />
