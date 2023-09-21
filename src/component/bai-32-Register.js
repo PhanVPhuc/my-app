@@ -38,25 +38,26 @@ function Bai32(props) {
     });
   }
 
-  const handleFile = (e) => {
-    //khai báo xx vì file là 1 array , khi đó ta xài xx[0(ten file)].size(kich thuoc) để gọi ra file ảnh ta vừa chọn
-    let xx = e.target.files;
-    // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
-    // setInputs((state) => ({
-    //   ...state,
-    //   image: xx[0],
-    //   // Lưu file được chọn vào biến image
-    // }));
-    // có thực sự đưa hết vào useState không nhỉ ?
+  // const handleFile = (e) => {
+  //   //khai báo xx vì file là 1 array , khi đó ta xài xx[0(ten file)].size(kich thuoc) để gọi ra file ảnh ta vừa chọn
+  //   let xx = e.target.files;
+  //   console.log(xx);
+  //   // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
+  //   // setInputs((state) => ({
+  //   //   ...state,
+  //   //   image: xx[0],
+  //   //   // Lưu file được chọn vào biến image
+  //   // }));
+  //   // có thực sự đưa hết vào useState không nhỉ ?
 
-    let maxSize = 1024 * 1024;
-    if (xx[0].size > maxSize) {
-      window.alert("NO NO, chúng tôi chỉ chấp nhận file ảnh < 2mb");
-      e.preventDefault();
-    } else {
-      window.alert("OKe");
-    }
-  };
+  //   let maxSize = 1024 * 1024;
+  //   if (xx[0].size > maxSize) {
+  //     window.alert("NO NO, chúng tôi chỉ chấp nhận file ảnh < 2mb");
+  //     e.preventDefault();
+  //   } else {
+  //     window.alert("OKe");
+  //   }
+  // };
   const [previewImage, setPreviewImage] = useState(null);
   const onImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -65,24 +66,8 @@ function Bai32(props) {
     }
   };
 
-  // function xulyForm(e) {
-  //   if (getFile == "") {
-  //     window.alert("vui long upload file");
-  //   } else {
-  //     // console.log(getFile); => nó sẽ trả về 1 mảng cho mình
-  //     let getSize = getFile[0].size;
-  //     let getName = getFile[0].name;
-
-  //     if (!getName) {
-  //       window.alert(getName + " khong hop le ");
-  //     }
-  //     if (getSize > 1024 * 1024) {
-  //       window.alert("File phai nho hon 1mb cho nen " + getSize + " mb > 1mb");
-  //     }
-  //   }
-  // }
   const [getFile, setFile] = useState(""); // lấy toàn bộ data của file
-
+  //  mặc địch chưa có data thì getFile = ""
   function xulyFile(e) {
     setFile(e.target.files);
   }
@@ -96,8 +81,6 @@ function Bai32(props) {
   const handleInput = (e) => {
     const nameInput = e.target.name;
     const valueInput = e.target.value;
-    //  const imgSize = e.target.files[0].size; cái này nghĩa là gì ta ?
-    // nếu dùng nó tại đây thì ta thực sự có thể lấy được size như name hay value như trên hay k ?
     setInputs((state) => ({
       ...state,
       [nameInput]: valueInput,
@@ -118,33 +101,31 @@ function Bai32(props) {
       flag = false;
     }
     // dùng biến image khai báo trên xuống này để xử lí form
+
     if (getFile == "") {
       // errorSubmit = "vui long upload file"; // truyền biến toàn bộ =>  sai
       // khi có email và pass thì nó tắt nhưng vẫn bị stuck
-
-      console.log("vui long upload FILE ");
+      console.log(getFile);
+      alert("vui long upload FILE ");
     } else {
       console.log(getFile);
 
       let getSize = getFile[0].size;
       let getName = getFile[0].name;
 
+      console.log(maxSize + " VS " + getSize);
       if (getSize > maxSize) {
-        // errorSubmit[""] = "File phai nho hon 1mb";
-
+        alert("File phai nho hon 1mb");
         flag = false;
       }
 
       // Kiểm tra định dạng file
-      // let validExtensions = ["png", "jpg", "jpeg"];
-      // let fileExtension = getName
-      //   .split(".")
-      //   .pop()
-      //   .toLowerCase();
-      // if (!validExtensions.includes(fileExtension)) {
-      //   errorSubmit[""] = "File ảnh không hợp lệ!";
-      //   flag = false;
-      // }
+      let validExtensions = ["png", "jpg", "jpeg"];
+      let fileExtension = getName.split(".").pop().toLowerCase();
+      if (!validExtensions.includes(fileExtension)) {
+        alert("File ảnh không hợp lệ!");
+        flag = false;
+      }
     }
 
     if (!flag) {
@@ -183,7 +164,9 @@ function Bai32(props) {
           <input
             type="file"
             onChange={onImageChange}
-            onChangeCapture={handleSubmit}
+            onChangeCapture={(handleSubmit, xulyFile)}
+            // gọi xử lý file ra để truyền file vào useState
+            //  không gọi thì nó sẽ luôn là " " và sẽ bị stuck code ( do ngu )
             className="filetype"
             // accept="image/png, image/jpeg , image/jpg"
           />
