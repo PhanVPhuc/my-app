@@ -42,18 +42,19 @@ function Bai32(props) {
     //khai báo xx vì file là 1 array , khi đó ta xài xx[0(ten file)].size(kich thuoc) để gọi ra file ảnh ta vừa chọn
     let xx = e.target.files;
     // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
-    setInputs((state) => ({
-      ...state,
-      image: xx[0], // Lưu file được chọn vào biến image
-    }));
+    // setInputs((state) => ({
+    //   ...state,
+    //   image: xx[0],
+    //   // Lưu file được chọn vào biến image
+    // }));
     // có thực sự đưa hết vào useState không nhỉ ?
 
     let maxSize = 1024 * 1024;
-    if (xx[0].size >= maxSize) {
+    if (xx[0].size > maxSize) {
       window.alert("NO NO, chúng tôi chỉ chấp nhận file ảnh < 2mb");
       e.preventDefault();
     } else {
-      window.alert("OK");
+      window.alert("OKe");
     }
   };
   const [previewImage, setPreviewImage] = useState(null);
@@ -69,24 +70,22 @@ function Bai32(props) {
   function xulyFile(e) {
     setFile(e.target.files);
   }
-  function xulyForm(e) {
-    if (getFile == "") {
-      window.alert("vui long upload file");
-    } else {
-      // console.log(getFile); => nó sẽ trả về 1 mảng cho mình
-      let getSize = getFile[0].size;
-      let getName = getFile[0].name;
+  // function xulyForm(e) {
+  //   if (getFile == "") {
+  //     window.alert("vui long upload file");
+  //   } else {
+  //     // console.log(getFile); => nó sẽ trả về 1 mảng cho mình
+  //     let getSize = getFile[0].size;
+  //     let getName = getFile[0].name;
 
-      if (!getName) {
-        window.alert(getName + " khong hop le ");
-      }
-      if (getSize > 1024 * 1024) {
-        window.alert(
-          "File phai nho hon 1mb cho nen " + getSize + "mb qua kich co 1mb"
-        );
-      }
-    }
-  }
+  //     if (!getName) {
+  //       window.alert(getName + " khong hop le ");
+  //     }
+  //     if (getSize > 1024 * 1024) {
+  //       window.alert("File phai nho hon 1mb cho nen " + getSize + " mb > 1mb");
+  //     }
+  //   }
+  // }
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -119,9 +118,23 @@ function Bai32(props) {
       flag = false;
     }
     // dùng biến image khai báo trên xuống này để xử lí form
-    if (inputs.image && inputs.image.size > maxSize) {
-      errorSubmit.size = "Vui lòng chọn lại ảnh";
-      flag = false;
+    // if (inputs.image && inputs.image.size > maxSize) {
+    //   errorSubmit.size = "Vui lòng chọn lại ảnh";
+    //   flag = false;
+    // }
+    if (getFile == "") {
+      window.alert("vui long upload file");
+    } else {
+      // console.log(getFile); => nó sẽ trả về 1 mảng cho mình
+      let getSize = getFile[0].size;
+      let getName = getFile[0].name;
+
+      if (!getName) {
+        window.alert(getName + " khong hop le ");
+      }
+      if (getSize > 1024 * 1024) {
+        window.alert("File phai nho hon 1mb cho nen " + getSize + " mb > 1mb");
+      }
     }
 
     if (!flag) {
@@ -160,7 +173,7 @@ function Bai32(props) {
           <input
             type="file"
             onChange={onImageChange}
-            onChangeCapture={handleFile}
+            onChangeCapture={(handleFile, handleInput)}
             className="filetype"
             accept="image/png, image/jpeg , image/jpg"
           />
