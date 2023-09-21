@@ -133,10 +133,10 @@ function Bai32(props) {
 
     if (!flag) {
       setError(errorSubmit);
-      localStorage.setItem("info", JSON.stringify(inputs));
     } else {
       setError({});
     }
+    localStorage.setItem("info", JSON.stringify(inputs));
   }
   const navigateLogin = () => {
     Navigate("/login");
