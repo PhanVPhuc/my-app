@@ -132,7 +132,7 @@ function Bai32(props) {
       if (!getName) {
         errorSubmit[""] = " ten khong hop le ";
       }
-      if (getSize > 1024 * 1024) {
+      if (getSize > maxSize) {
         errorSubmit[""] = "File phai nho hon 1mb ";
       }
     }
