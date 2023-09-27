@@ -121,7 +121,10 @@ function Bai32(props) {
 
       // Kiểm tra định dạng file
       let validExtensions = ["png", "jpg", "jpeg"];
-      let fileExtension = getName.split(".").pop().toLowerCase();
+      let fileExtension = getName
+        .split(".")
+        .pop()
+        .toLowerCase();
       if (!validExtensions.includes(fileExtension)) {
         alert("File ảnh không hợp lệ!");
         flag = false;
@@ -133,12 +136,13 @@ function Bai32(props) {
     } else {
       setError({});
     }
+    localStorage.setItem("info", JSON.stringify(inputs));
   }
   const navigateLogin = () => {
     Navigate("/login");
   };
   // console.log(inputs);
-  localStorage.setItem("info", JSON.stringify(inputs));
+
   return (
     <div>
       <Error error={error} />
