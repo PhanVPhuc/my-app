@@ -56,6 +56,7 @@ function Login(props) {
       // setErrors(errorsSubmit);
       // console.log("ads");
     }
+    localStorage.setItem("info", JSON.stringify(inputs));
   }
   // function local() {
   //   const jj = {};
@@ -65,7 +66,6 @@ function Login(props) {
   //     inputs = jj;
   //   }
   // }
-  localStorage.setItem("info", JSON.stringify(inputs));
 
   // function renderError() {
   //   if (Object.keys(errors).length > 0) {
