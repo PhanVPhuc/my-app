@@ -24,6 +24,7 @@ import LoginButton from "./component/LoginButon";
 import Test from "./component/bai13";
 import Bai32 from "./component/bai-32-Register";
 import Bai32Login from "./component/bai-32-Login";
+import DemoAxios from "./component/Demo-axios";
 
 // import "./index.html";
 
@@ -118,22 +119,21 @@ const numbers = [1, 2, 3, 4, 5];
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
+    <DemoAxios />
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
     {/* <NumberList numbers={numbers} /> */}
-    <React.StrictMode>
-      {/* <App obj={obj} arr={arr} /> */}
-      {/* <Test /> */}
-
+    {/* <App obj={obj} arr={arr} /> */}
+    {/* <Test /> */}
+    {/* <React.StrictMode>
       <Router>
         <App />
         <Bai32 />
-        {/* <Bai32Login /> */}
         <Routes>
           <Route path="/login" element={<Bai32Login />} />
         </Routes>
       </Router>
-    </React.StrictMode>
+    </React.StrictMode> */}
     {/* <React.StrictMode>
       <Router>
         <App>

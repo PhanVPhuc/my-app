@@ -11,9 +11,7 @@ function App(props) {
 
   // Lưu data vào state (giống biến toàn cục )
 
-  
   // const [getItem, setItem] = useState(true);
-
 
   // function change() {
   //   setItem(false);
