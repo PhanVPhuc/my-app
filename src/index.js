@@ -25,6 +25,7 @@ import Test from "./component/bai13";
 import Bai32 from "./component/bai-32-Register";
 import Bai32Login from "./component/bai-32-Login";
 import DemoAxios from "./component/Demo-axios";
+import AxiosA from "./component/BaitapApi-A";
 
 // import "./index.html";
 
@@ -119,7 +120,10 @@ const numbers = [1, 2, 3, 4, 5];
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <DemoAxios />
+    {/* apis */}
+    {/* <DemoAxios /> */}
+    <AxiosA />
+    {/* end apis */}
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
     {/* <NumberList numbers={numbers} /> */}
