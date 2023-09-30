@@ -98,10 +98,10 @@ function DemoAxios() {
         <button type="submit">Delete</button>
       </form>
       // GET Request
-      <ul>
+      {/* <ul>
         {renderData()}
         <p>Đã lấy được giá trị từ Fake API !</p>
-      </ul>
+      </ul> */}
     </>
   );
 }
