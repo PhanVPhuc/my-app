@@ -26,6 +26,7 @@ import Bai32 from "./component/bai-32-Register";
 import Bai32Login from "./component/bai-32-Login";
 import DemoAxios from "./component/Demo-axios";
 import AxiosA from "./component/BaitapApi-A";
+import AxiosB from "./component/BaitapApi-B";
 
 // import "./index.html";
 
@@ -122,7 +123,8 @@ root.render(
   <>
     {/* apis */}
     {/* <DemoAxios /> */}
-    <AxiosA />
+    {/* <AxiosA /> */}
+    <AxiosB />
     {/* end apis */}
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}
