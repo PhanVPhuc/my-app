@@ -123,7 +123,7 @@ root.render(
   <>
     {/* apis */}
     {/* <DemoAxios /> */}
-    {/* <AxiosA /> */}
+    <AxiosA />
     <AxiosB />
     {/* end apis */}
     {/* <LoginControl /> */}
