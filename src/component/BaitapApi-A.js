@@ -13,6 +13,12 @@ function AxiosA() {
       .catch((error) => console.log(error));
   }, []);
 
-  return <AxiosB data={data} />;
+  return (
+    <div className="App">
+      AXIOS-A PAGE
+      <AxiosB data={data} />
+    </div>
+  );
 }
+
 export default AxiosA;

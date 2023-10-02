@@ -1,20 +1,8 @@
-import AxiosA from "./BaitapApi-A";
-import React from "react";
-function AxiosB({ data }) {
-  // Xử lý dữ liệu trong biến data ở đây
-  if (!data) {
-    return <div>Dữ liệu chưa được truyền vào</div>;
-  } else {
-    return <div> ĐÃ có dữ liệu , vui lòng kiểm tra</div>;
-  }
-
-  return (
-    <ul>
-      {data.map((item) => (
-        <li key={item.id}>{item.name}</li>
-      ))}
-    </ul>
-  );
+import React, { useEffect, useState } from "react";
+function AxiosB(props) {
+  // Xử lý dữ liệu trong biến props ở đây
+  console.log(props);
+  return <div>AXIOS-B PAGE</div>;
 }
 
 export default AxiosB;
