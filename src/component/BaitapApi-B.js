@@ -4,6 +4,8 @@ function AxiosB({ data }) {
   // Xử lý dữ liệu trong biến data ở đây
   if (!data) {
     return <div>Dữ liệu chưa được truyền vào</div>;
+  } else {
+    return <div> ĐÃ có dữ liệu , vui lòng kiểm tra</div>;
   }
 
   return (
