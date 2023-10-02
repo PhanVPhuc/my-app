@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 function AxiosB(props) {
-  // Xử lý dữ liệu trong biến props ở đây
-  console.log(props);
-  return <div>AXIOS-B PAGE</div>;
+  const data = props.data;
+
+  console.log(data);
+
+  return <div className="App">This is page B</div>;
 }
 
 export default AxiosB;

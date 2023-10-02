@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AxiosB from "./BaitapApi-B";
 
-function AxiosA() {
+function AxiosA(props) {
+
+
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -13,6 +15,7 @@ function AxiosA() {
       .catch((error) => console.log(error));
   }, []);
 
+    
   return (
     <div className="App">
       AXIOS-A PAGE
