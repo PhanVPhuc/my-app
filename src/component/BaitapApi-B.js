@@ -4,8 +4,8 @@ function AxiosB(props) {
   const data = props.data;
 
   function renderData() {
-    // console.log(data); //kiểm tra đã lấy được data từ api chưa ?
-    if (!data) return null; // Check nếu data tồn tại trong hàm
+    console.log(data); //kiểm tra đã lấy được data từ api chưa ?
+    if (!data || !Array.isArray(data)) return null; // Check nếu data tồn tại trong hàm
 
     if (data.length > 0) {
       return data.map((value, key) => {
