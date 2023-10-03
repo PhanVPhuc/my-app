@@ -1,43 +1,75 @@
 import React, { useEffect, useState } from "react";
 
 function AxiosB(props) {
-  const data = props.data;
+  // const data = props.data;
+  let { data } = props.data;
 
   function renderData() {
-    console.log(data); //kiểm tra đã lấy được data từ api chưa ?
-    if (!data || !Array.isArray(data)) return null; // Check nếu data tồn tại trong hàm
+    // console.log(data); //kiểm tra đã lấy được data từ api chưa ?
+    // if (!data) return null; // Check nếu data tồn tại trong hàm
+    // 18.1 render data
+    // if (data.length > 0) {
+    //   return data.map((value, key) => {
+    //     return (
+    //       <div key={value.id}>
+    //         <p>- ID: {value.id}</p>
+    //         <p>- Name: {value.name}</p>
+    //         <p>- Username: {value.username}</p>
+    //         <p>- Email: {value.email} </p>
+    //         <p>- Address </p>
+    //         <ul>
+    //           <li>
+    //             <p>+ Street : {value.address.street} </p>
+    //           </li>
+    //           <li>
+    //             <p>+ Suite : {value.address.suite} </p>
+    //           </li>
+    //         </ul>
+    //         <p>- Phone : {value.phone} </p>
+    //         <p>- Website : {value.website} </p>
+    //         <p>- Company</p>
+    //         <ul>
+    //           <li>
+    //             <p>+ Name : {value.company.name} </p>
+    //           </li>
+    //           <li>
+    //             <p>+ CatchPhrase : {value.company.catchPhrase} </p>
+    //           </li>
+    //         </ul>
+    //       </div>
+    //     );
+    //   });
+    // }
 
-    if (data.length > 0) {
-      return data.map((value, key) => {
-        return (
-          <div key={value.id}>
-            <p>- ID: {value.id}</p>
-            <p>- Name: {value.name}</p>
-            <p>- Username: {value.username}</p>
-            <p>- Email: {value.email} </p>
-            <p>- Address </p>
-            <ul>
-              <li>
-                <p>+ Street : {value.address.street} </p>
-              </li>
-              <li>
-                <p>+ Suite : {value.address.suite} </p>
-              </li>
-            </ul>
-            <p>- Phone : {value.phone} </p>
-            <p>- Website : {value.website} </p>
-            <p>- Company</p>
-            <ul>
-              <li>
-                <p>+ Name : {value.company.name} </p>
-              </li>
-              <li>
-                <p>+ CatchPhrase : {value.company.catchPhrase} </p>
-              </li>
-            </ul>
-          </div>
-        );
-      });
+    if (Object.keys.length > 0) {
+      return (
+        <div key={data.id}>
+          <p>- ID: {data.id}</p>
+          <p>- Name: {data.name}</p>
+          <p>- Username: {data.username}</p>
+          <p>- Email: {data.email} </p>
+          <p>- Address </p>
+          <ul>
+            <li>
+              <p>+ Street : {data.address.street} </p>
+            </li>
+            <li>
+              <p>+ Suite : {data.address.suite} </p>
+            </li>
+          </ul>
+          <p>- Phone : {data.phone} </p>
+          <p>- Website : {data.website} </p>
+          <p>- Company</p>
+          <ul>
+            <li>
+              <p>+ Name : {data.company.name} </p>
+            </li>
+            <li>
+              <p>+ CatchPhrase : {data.company.catchPhrase} </p>
+            </li>
+          </ul>
+        </div>
+      );
     }
   }
   return (
