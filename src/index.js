@@ -124,7 +124,7 @@ root.render(
     {/* apis */}
     {/* <DemoAxios /> */}
     <AxiosA />
-    <AxiosB />
+    {/* <AxiosB /> */}
     {/* end apis */}
     {/* <LoginControl /> */}
     {/* <ul>{Listed}</ul> */}

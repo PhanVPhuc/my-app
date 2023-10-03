@@ -23,6 +23,8 @@ function AxiosA(props) {
         if (res.data.length > 0) {
           const randomIndex = Math.floor(Math.random() * res.data.length);
           setData(res.data[randomIndex]);
+          // setData(res.data[2]);
+          // setData(res.data);
         }
       })
       .catch((error) => console.log(error));
