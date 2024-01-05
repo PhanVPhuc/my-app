@@ -38,26 +38,6 @@ function Bai32(props) {
     });
   }
 
-  // const handleFile = (e) => {
-  //   //khai báo xx vì file là 1 array , khi đó ta xài xx[0(ten file)].size(kich thuoc) để gọi ra file ảnh ta vừa chọn
-  //   let xx = e.target.files;
-  //   console.log(xx);
-  //   // lấy hết , đưa vào 1 file . Sau đó gọi thẳng file xuống xử lí
-  //   // setInputs((state) => ({
-  //   //   ...state,
-  //   //   image: xx[0],
-  //   //   // Lưu file được chọn vào biến image
-  //   // }));
-  //   // có thực sự đưa hết vào useState không nhỉ ?
-
-  //   let maxSize = 1024 * 1024;
-  //   if (xx[0].size > maxSize) {
-  //     window.alert("NO NO, chúng tôi chỉ chấp nhận file ảnh < 2mb");
-  //     e.preventDefault();
-  //   } else {
-  //     window.alert("OKe");
-  //   }
-  // };
   const [previewImage, setPreviewImage] = useState(null);
   const onImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {

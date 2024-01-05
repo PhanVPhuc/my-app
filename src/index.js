@@ -123,7 +123,7 @@ root.render(
   <>
     {/* apis */}
     {/* <DemoAxios /> */}
-    <AxiosA />
+    {/* <AxiosA /> */}
     {/* <AxiosB /> */}
     {/* end apis */}
     {/* <LoginControl /> */}
@@ -140,7 +140,7 @@ root.render(
         </Routes>
       </Router>
     </React.StrictMode> */}
-    {/* <React.StrictMode>
+    <React.StrictMode>
       <Router>
         <App>
           <Routes>
@@ -157,7 +157,7 @@ root.render(
           </Routes>
         </App>
       </Router>
-    </React.StrictMode> */}
+    </React.StrictMode>
   </>
 );
 

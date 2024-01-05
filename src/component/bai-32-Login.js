@@ -49,9 +49,9 @@ function Bai32Login() {
       }
     }
   }
-  const navigateRegister = () => {
-    Navigate("/register");
-  };
+  // const navigateRegister = () => {
+  //   Navigate("/register");
+  // };
   return (
     <div>
       <Error error={error} />

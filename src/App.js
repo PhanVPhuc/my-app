@@ -51,9 +51,11 @@ function App(props) {
 
   // re-return khi useState thay đổi ở funtion renderData
   return (
-    <div>{/* <Header />
+    <div>
+      <Header />
       {props.children}
-      <Footer /> */}</div>
+      <Footer />
+    </div>
 
     // hiển thị html
     // <div>
